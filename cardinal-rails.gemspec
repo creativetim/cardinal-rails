@@ -14,7 +14,7 @@ Gem::Specification.new do |spec|
   spec.homepage      = "https://github.com/creativetim/cardinal-rails"
   spec.license       = "MIT"
 
-  spec.files         = Dir["{lib,vendor}/**/*"] + ["License", "README.md"]
+  spec.files         = Dir["{lib,vendor}/**/*"] + ["License.txt", "README.md"]
   spec.require_paths = ["lib"]
 
   if spec.respond_to?(:metadata)
