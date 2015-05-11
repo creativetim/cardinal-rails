@@ -20,6 +20,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'railties', '>= 3.1', '< 5.0'
   spec.add_dependency 'less-rails', '~> 2.4'
   spec.add_dependency 'therubyracer', '~> 0.12'
+  spec.add_dependency 'autoprefixer-rails' '~> 5.1.11'
 
   spec.add_development_dependency 'bundler', '~> 1.9'
   spec.add_development_dependency 'rake', '~> 10.0'
