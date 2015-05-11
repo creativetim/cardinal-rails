@@ -6,7 +6,7 @@ require 'cardinal/rails/version'
 Gem::Specification.new do |spec|
   spec.name          = "cardinal-rails"
   spec.version       = Cardinal::Rails::VERSION
-  spec.authors       = ["Tim Yager"]
+  spec.authors       = ["creativetim"]
   spec.email         = ["tim.yager@gmail.com"]
 
   spec.summary       = %q{Cardinal integrated into the Asset Pipeline}
@@ -16,10 +16,6 @@ Gem::Specification.new do |spec|
 
   spec.files         = Dir["{lib,vendor}/**/*"] + ["License.txt", "README.md"]
   spec.require_paths = ["lib"]
-
-  if spec.respond_to?(:metadata)
-    spec.metadata['allowed_push_host'] = "TODO: Set to 'http://mygemserver.com' to prevent pushes to rubygems.org, or delete to allow pushes to any server."
-  end
 
   spec.add_dependency "railties", "~> 3.1"
 
