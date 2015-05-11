@@ -1,4 +1,4 @@
-require "cardinal/rails/version"
+require "cardinal-rails/version"
 
 module Cardinal
   module Rails
