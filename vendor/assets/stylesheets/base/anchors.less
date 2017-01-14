@@ -1,18 +1,14 @@
 /* ========================================================================== *\
-   Core -> Base -> Tables ($core-base-tables)
+   Base -> Anchors ($base-anchors)
 \* ========================================================================== */
 
-table {
-  width: 100%;
-  empty-cells: show;
-}
+a {
+  text-decoration: underline;
+  color: @anchor-text-color;
 
-th,
-tfoot td {
-  text-align: left;
-}
-
-th,
-td {
-  overflow: visible;
+  &:hover,
+  &:active,
+  &:focus {
+    text-decoration: none;
+  }
 }

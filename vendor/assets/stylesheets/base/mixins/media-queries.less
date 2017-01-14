@@ -1,5 +1,5 @@
 // =============================================================================
-// Core -> Mixins -> Media Queries
+// Base -> Mixins -> Media Queries
 // =============================================================================
 
 //
@@ -15,7 +15,7 @@
   }
 }
 
-// Extra-small and down
+// Extra-small and down (deprecated)
 .screen-xs-max(@rules) {
   @media (max-width: @screen-xs-max) {
     @rules();
@@ -36,7 +36,7 @@
   }
 }
 
-// Small and down
+// Small and down (deprecated)
 .screen-sm-max(@rules) {
   @media (max-width: @screen-sm-max) {
     @rules();
@@ -57,7 +57,7 @@
   }
 }
 
-// Medium and down
+// Medium and down (deprecated)
 .screen-md-max(@rules) {
   @media (max-width: @screen-md-max) {
     @rules();
@@ -78,7 +78,7 @@
   }
 }
 
-// Large and down
+// Large and down (deprecated)
 .screen-lg-max(@rules) {
   @media (max-width: @screen-lg-max) {
     @rules();
@@ -99,7 +99,7 @@
   }
 }
 
-// Extra-large and down
+// Extra-large and down (deprecated)
 .screen-xl-max(@rules) {
   @media (max-width: @screen-xl-max) {
     @rules();
@@ -151,4 +151,49 @@
   .screen-lg-min(@rules-lg);
   .screen-xl-min(@rules-xl);
   .screen-xxl-min(@rules-xxl);
+}
+
+//
+// Generate breakpoint classes
+//
+// Usage:
+//
+// .breakpoint-prefixes({
+//   .@{breakpoint-prefix}my-class{ background: red; }
+// });
+//
+
+.breakpoint-prefixes(@rules) {
+  @breakpoint-prefixes: xs, sm, md, lg, xl, xxl;
+  .write-classes(@class, @rules) {
+    & {
+      @breakpoint-prefix: @class;
+      @rules();
+    }
+  }
+  .breakpoint-prefixes-iterate(@i: length(@breakpoint-prefixes), @rules) when (@i > 0) {
+    .breakpoint-prefixes-iterate(@i - 1, @rules);
+    @prefix: extract(@breakpoint-prefixes, @i);
+    @prefix-class: ~"@{prefix}-";
+    & when (@prefix = xs) {
+      .screen-xs-min({ .write-classes(@prefix-class, @rules); })
+    }
+    & when (@prefix = sm) {
+      .screen-sm-min({ .write-classes(@prefix-class, @rules); })
+    }
+    & when (@prefix = md) {
+      .screen-md-min({ .write-classes(@prefix-class, @rules); })
+    }
+    & when (@prefix = lg) {
+      .screen-lg-min({ .write-classes(@prefix-class, @rules); })
+    }
+    & when (@prefix = xl) {
+      .screen-xl-min({ .write-classes(@prefix-class, @rules); })
+    }
+    & when (@prefix = xxl) {
+      .screen-xxl-min({ .write-classes(@prefix-class, @rules); })
+    }
+  }
+  .write-classes(~'', @rules);
+  .breakpoint-prefixes-iterate(length(@breakpoint-prefixes), @rules);
 }

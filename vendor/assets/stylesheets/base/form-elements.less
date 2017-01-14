@@ -1,5 +1,5 @@
 /* ========================================================================== *\
-   Core -> Base -> Form Elements ($core-base-form-elements)
+   Base -> Form Elements ($base-form-elements)
 \* ========================================================================== */
 
 /**
@@ -20,18 +20,6 @@ input[type="submit"],
 label,
 select {
   cursor: pointer;         /* 2 */
-}
-
-/**
- * Work around a Firefox/IE bug where the transparent `button` background
- * results in a loss of the default `button` focus styles.
- *
- * @link http://cbrac.co/1CVyNTj
- */
-
-button:focus {
-  outline: 1px dotted;
-  outline: 5px auto -webkit-focus-ring-color;
 }
 
 /**
@@ -80,6 +68,7 @@ input[type="file"] {
  *    `content-box` value set by normalize.css.
  * 2. Remove rounded corners from iOS search inputs by overriding `appearance:
  *    textfield` from normalize.css.
+ *
  *    @link http://cbrac.co/1xgTke2
  */
 
@@ -122,9 +111,9 @@ legend {
  */
 
 textarea {
-  max-width: 100%;         /* 1 */
-  height: auto !important; /* 2 */
-  resize: vertical;        /* 3 */
+  max-width: 100%;  /* 1 */
+  height: auto;     /* 2 */
+  resize: vertical; /* 3 */
 }
 
 
