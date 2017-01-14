@@ -1,5 +1,5 @@
 module Cardinal
   module Rails
-    VERSION = "3.1.0.07"
+    VERSION = "3.2.0.01"
   end
 end
